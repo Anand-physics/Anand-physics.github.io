@@ -1,10 +1,331 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Personal Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research profile of Dr Anand Pandey: nuclear structure, molecular imaging, PET reconstruction, positronium lifetime imaging and Monte Carlo simulation.">
+  <meta name="keywords" content="Anand Pandey, J-PET, positronium lifetime imaging, PET reconstruction, nuclear physics, octupole correlations, molecular imaging">
+  <meta name="author" content="Anand Pandey">
+  <title>Dr Anand Pandey | Researcher in Nuclear Physics and Molecular Imaging</title>
+  <style>
+    :root {
+      --navy: #071a2f;
+      --blue: #0b4f8a;
+      --cyan: #16b5d8;
+      --ink: #142234;
+      --muted: #607084;
+      --paper: #f4f8fb;
+      --white: #ffffff;
+      --line: #dce7ef;
+      --gold: #f2b84b;
+      --shadow: 0 18px 50px rgba(7, 26, 47, .11);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; background: white; padding: .7rem 1rem; }
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(7, 26, 47, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .nav-wrap { max-width: 1180px; margin: auto; padding: .8rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { color: white; font-weight: 800; text-decoration: none; letter-spacing: .01em; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 1.1rem; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: #dceaf6; text-decoration: none; font-size: .92rem; }
+    .nav-links a:hover, .nav-links a:focus { color: white; }
+    .hero {
+      color: white;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(22,181,216,.30), transparent 26%),
+        radial-gradient(circle at 12% 88%, rgba(242,184,75,.16), transparent 23%),
+        linear-gradient(135deg, #061628 0%, #0b3157 55%, #0d5e87 100%);
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 1180px; margin: auto; padding: 6rem 1.2rem 5rem; display: grid; grid-template-columns: 1.35fr .65fr; gap: 4rem; align-items: center; }
+    .eyebrow { margin: 0 0 .8rem; color: #80e4f7; text-transform: uppercase; letter-spacing: .15em; font-weight: 800; font-size: .78rem; }
+    h1 { margin: 0; font-size: clamp(2.7rem, 7vw, 5.7rem); line-height: .98; letter-spacing: -.055em; }
+    .hero h2 { margin: 1.1rem 0; font-size: clamp(1.1rem, 2.4vw, 1.55rem); font-weight: 500; color: #d4e7f4; }
+    .hero p { max-width: 760px; color: #c7d9e7; font-size: 1.05rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.7rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: .82rem 1.15rem; border-radius: 999px; text-decoration: none; font-weight: 750; border: 1px solid transparent; transition: .22s ease; }
+    .btn-primary { background: var(--cyan); color: #05223a; }
+    .btn-primary:hover { transform: translateY(-2px); background: #60d9ef; }
+    .btn-ghost { border-color: rgba(255,255,255,.38); color: white; }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); }
+    .portrait {
+      width: min(330px, 80vw); aspect-ratio: 4/5; margin: auto;
+      border-radius: 32px; overflow: hidden; position: relative;
+      background: linear-gradient(145deg, #d8edf5, #77bfd2);
+      box-shadow: 0 30px 80px rgba(0,0,0,.3);
+      border: 5px solid rgba(255,255,255,.16);
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .portrait-fallback { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 2rem; color: #0a3b5e; font-weight: 800; }
+    .portrait-fallback strong { font-size: 4rem; display:block; }
+    main { overflow: hidden; }
+    section { padding: 5rem 1.2rem; }
+    .container { max-width: 1180px; margin: auto; }
+    .section-head { max-width: 790px; margin-bottom: 2rem; }
+    .section-head h2 { margin: 0 0 .5rem; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.035em; color: var(--navy); }
+    .section-head p { color: var(--muted); }
+    .grid { display: grid; gap: 1.2rem; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; box-shadow: 0 8px 24px rgba(7,26,47,.05); }
+    .card h3 { margin: 0 0 .5rem; color: var(--navy); }
+    .card p { margin: .35rem 0; color: var(--muted); }
+    .icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; background: #e5f8fc; color: var(--blue); font-size: 1.35rem; margin-bottom: 1rem; }
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; }
+    .fact-list { list-style: none; padding: 0; margin: 0; }
+    .fact-list li { padding: .8rem 0; border-bottom: 1px solid var(--line); }
+    .fact-list strong { color: var(--navy); display: block; }
+    .band { background: var(--navy); color: white; }
+    .band .section-head h2 { color: white; }
+    .band .section-head p { color: #bdd0df; }
+    .band .card { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); box-shadow: none; }
+    .band .card h3 { color: white; }
+    .band .card p { color: #bfd1df; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+    .tag { padding: .42rem .7rem; border-radius: 999px; background: #edf6fa; color: #174866; font-size: .83rem; font-weight: 700; }
+    .band .tag { background: rgba(22,181,216,.14); color: #9febf7; border: 1px solid rgba(22,181,216,.25); }
+    .timeline { position: relative; margin-left: .6rem; }
+    .timeline::before { content:""; position:absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: #b8dae7; }
+    .timeline-item { position: relative; padding: 0 0 2rem 2.2rem; }
+    .timeline-item::before { content:""; position:absolute; left:0; top:.42rem; width: 18px; height:18px; border-radius:50%; background: var(--cyan); border: 4px solid var(--paper); box-shadow: 0 0 0 1px #7ec8da; }
+    .timeline-item time { color: var(--blue); font-weight: 800; font-size: .88rem; }
+    .timeline-item h3 { margin:.2rem 0; color:var(--navy); }
+    .timeline-item p { margin:.3rem 0; color:var(--muted); }
+    .filters { display:flex; flex-wrap:wrap; gap:.55rem; margin-bottom:1.3rem; }
+    .filter-btn { border:1px solid var(--line); background:white; color:var(--ink); border-radius:999px; padding:.55rem .9rem; cursor:pointer; font:inherit; font-weight:750; }
+    .filter-btn.active { background:var(--blue); color:white; border-color:var(--blue); }
+    .pub { display:grid; grid-template-columns: 74px 1fr; gap:1rem; align-items:start; }
+    .pub-year { background:#e7f6fb; color:var(--blue); border-radius:14px; padding:.55rem .35rem; text-align:center; font-weight:850; }
+    .pub h3 { font-size:1rem; margin:0 0 .35rem; }
+    .pub p { font-size:.91rem; }
+    .map-wrap { background: linear-gradient(145deg,#06192d,#0c4d72); border-radius: var(--radius); padding:1rem; box-shadow:var(--shadow); }
+    .map-wrap svg { width:100%; height:auto; display:block; }
+    .map-label { fill:#d9edf6; font-size:12px; font-weight:700; }
+    .map-point { fill:var(--gold); stroke:#fff; stroke-width:2; }
+    .visit-list { display:grid; grid-template-columns:repeat(2,1fr); gap:.8rem; margin-top:1rem; }
+    .visit { padding:1rem; border-left:3px solid var(--cyan); background:white; border-radius:0 14px 14px 0; }
+    .visit strong { color:var(--navy); }
+    .conference-card time { font-weight:800; color:var(--blue); }
+    .contact { background: linear-gradient(135deg,#0b4f8a,#073258); color:white; text-align:center; border-radius:32px; padding:3rem; }
+    .contact h2 { margin-top:0; font-size:clamp(2rem,4vw,3rem); }
+    .contact p { color:#d0e3ef; }
+    footer { background:#051321; color:#9db3c3; padding:2rem 1.2rem; text-align:center; }
+    .small { font-size:.88rem; }
+    @media (max-width: 860px) {
+      .hero-inner, .about-layout, .grid-3, .grid-2 { grid-template-columns:1fr; }
+      .hero-inner { padding-top:4rem; gap:2rem; }
+      .portrait { width:min(260px,75vw); }
+      .nav-links { display:none; }
+      .visit-list { grid-template-columns:1fr; }
+    }
+    @media print {
+      nav, .actions, .filters { display:none; }
+      section { padding:2rem 0; }
+      .hero { color:black; background:white; }
+      .hero h2, .hero p { color:#333; }
+      .portrait { box-shadow:none; }
+      .card { break-inside:avoid; box-shadow:none; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to my website!</h1>
-    <p>Hosted freely on GitHub Pages.</p>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <nav aria-label="Primary navigation">
+    <div class="nav-wrap">
+      <a class="brand" href="#top">AP<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#career">Career</a>
+        <a href="#publications">Publications</a><a href="#global">Global activity</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Nuclear Physics · Molecular Imaging · Computational Reconstruction</p>
+        <h1>Dr Anand<br>Pandey</h1>
+        <h2>Assistant Professor, Research Staff · Jagiellonian University</h2>
+        <p>I develop quantitative imaging methods at the intersection of nuclear physics, positron emission tomography, positronium lifetime imaging and Monte Carlo simulation. My research connects fundamental radiation interactions with practical reconstruction algorithms and experimentally validated molecular images.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#research">Explore my research</a>
+          <a class="btn btn-ghost" href="#publications">Selected publications</a>
+          <a class="btn btn-ghost" href="https://orcid.org/0000-0002-3929-0899" target="_blank" rel="noopener">ORCID profile</a>
+        </div>
+      </div>
+      <div class="portrait" aria-label="Researcher portrait">
+        <div class="portrait-fallback"><span><strong>AP</strong>Add your photograph as<br><code>profile.jpg</code></span></div>
+        <img src="profile.jpg" alt="Professional portrait" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" style="color:var(--blue)">Profile</p><h2>From nuclear structure to next-generation molecular imaging</h2></div>
+        <div class="about-layout">
+          <div class="card">
+            <h3>At a glance</h3>
+            <ul class="fact-list">
+              <li><strong>Current position</strong>Assistant Professor, Research Staff</li>
+              <li><strong>Institution</strong>Jagiellonian University, Kraków</li>
+              <li><strong>Doctorate</strong>Physics, University of Delhi</li>
+              <li><strong>Collaboration</strong>Jagiellonian Positron Emission Tomography (J-PET)</li>
+              <li><strong>ORCID</strong>0000-0002-3929-0899</li>
+            </ul>
+          </div>
+          <div>
+            <p>My current work centres on iterative PET and positronium lifetime image reconstruction. I develop algorithms for list-mode event processing, system-matrix modelling, time-of-flight weighting, statistical reconstruction, lifetime estimation and quantitative validation using simulations, phantoms and experimental detector data.</p>
+            <p>My doctoral research investigated high-spin structures in neutron-deficient Xe and I nuclei. I used in-beam gamma-ray spectroscopy and nuclear-level lifetime measurements to study octupole correlations, quasiparticle alignment, band crossing and band termination. This background in experimental nuclear physics now informs my work on detector response, radiation transport and biomedical image formation.</p>
+            <p>I also have experience in nuclear-target fabrication and characterisation, including rolling, evaporation, SEM, EDS, EDXRF, XRD and RBS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="band">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Research themes</p><h2>Questions I work on</h2><p>My research combines experimental physics, computational modelling and quantitative imaging.</p></div>
+        <div class="grid grid-3">
+          <article class="card"><div class="icon">◎</div><h3>Positronium lifetime imaging</h3><p>Reconstruction of spatially resolved positronium lifetime and decay-constant images as candidate quantitative molecular-imaging biomarkers.</p><div class="tag-list"><span class="tag">PLI</span><span class="tag">Lifetime estimation</span><span class="tag">J-PET</span></div></article>
+          <article class="card"><div class="icon">Σ</div><h3>PET image reconstruction</h3><p>Iterative list-mode reconstruction, MLEM and penalised methods, system matrices, sensitivity modelling, time-of-flight kernels and quantitative validation.</p><div class="tag-list"><span class="tag">MLEM</span><span class="tag">TOF</span><span class="tag">System matrix</span></div></article>
+          <article class="card"><div class="icon">◌</div><h3>Monte Carlo simulation</h3><p>Simulation of detector response, prompt and annihilation photons, coincidence processing, scatter effects and data–simulation comparison.</p><div class="tag-list"><span class="tag">Monte Carlo</span><span class="tag">Detector modelling</span><span class="tag">Validation</span></div></article>
+          <article class="card"><div class="icon">γ</div><h3>Nuclear structure</h3><p>High-spin gamma-ray spectroscopy, nuclear-level lifetimes, octupole correlations, rotational bands and neutron-deficient nuclei around mass 120.</p><div class="tag-list"><span class="tag">DSAM</span><span class="tag">RDM</span><span class="tag">Octupole correlations</span></div></article>
+          <article class="card"><div class="icon">▦</div><h3>Quantitative image analysis</h3><p>ROI-based lifetime estimation, SNR and CNR analysis, phantom studies, CT/activity overlays, spatial resolution and uncertainty assessment.</p><div class="tag-list"><span class="tag">NEMA</span><span class="tag">ROI analysis</span><span class="tag">3D imaging</span></div></article>
+          <article class="card"><div class="icon">◇</div><h3>Scientific computing</h3><p>Python, C++, ROOT, GPU-enabled reconstruction, Siddon ray tracing, NIfTI workflows and publication-ready scientific visualisation.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">ROOT</span><span class="tag">GPU</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" style="color:var(--blue)">Career</p><h2>Academic journey</h2></div>
+        <div class="timeline">
+          <article class="timeline-item"><time>15 February 2025 – Present</time><h3>Assistant Professor, Research Staff</h3><p>Jagiellonian University, Kraków, Poland. Research in molecular imaging, PET reconstruction, positronium lifetime imaging and simulation within J-PET.</p></article>
+          <article class="timeline-item"><time>15 November 2023 – 7 February 2025</time><h3>Research Associate</h3><p>Jagiellonian University, Kraków, Poland. PET data analysis, reconstruction algorithm development, simulations and experimental validation.</p></article>
+          <article class="timeline-item"><time>2016 – 2023</time><h3>PhD in Physics</h3><p>University of Delhi. Thesis: <em>Search for exotic nuclear shapes at high spins in neutron-deficient Xe and I nuclei with mass A &lt; 120</em>.</p></article>
+          <article class="timeline-item"><time>2012 – 2014</time><h3>Master of Science in Physics</h3><p>Department of Physics and Astrophysics, University of Delhi.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" style="background:#eaf3f8">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" style="color:var(--blue)">Research output</p><h2>Selected publications</h2><p>A selection spanning molecular imaging, nuclear structure, lifetime measurements and target development. Edit this list as new papers are published.</p></div>
+        <div class="filters" role="group" aria-label="Publication filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="imaging">Molecular imaging</button>
+          <button class="filter-btn" data-filter="nuclear">Nuclear physics</button>
+          <button class="filter-btn" data-filter="targets">Target development</button>
+        </div>
+        <div class="grid grid-2" id="publication-list">
+          <article class="card pub" data-category="imaging"><div class="pub-year">2026</div><div><h3>Monte Carlo-Based Scatter Correction for the Plastic-Based Modular PET Scanner J-PET</h3><p><em>Physics in Medicine and Biology</em>, 71, 075026.</p></div></article>
+          <article class="card pub" data-category="imaging"><div class="pub-year">2026</div><div><h3>First Positronium Lifetime Imaging Using 52Mn and 55Co with a Plastic-Based PET Scanner</h3><p><em>Scientific Reports</em>, 16, 16230.</p></div></article>
+          <article class="card pub" data-category="imaging"><div class="pub-year">2026</div><div><h3>First Ex-Vivo Positronium Imaging of Tissues with the Modular J-PET Scanner Using 44Sc</h3><p><em>Zeitschrift für Medizinische Physik</em>.</p></div></article>
+          <article class="card pub" data-category="nuclear"><div class="pub-year">2025</div><div><h3>Lifetime Measurement of High-Spin States in Non-Yrast Bands in 177Re</h3><p><em>Chinese Physics C</em>, 49, 084006.</p></div></article>
+          <article class="card pub" data-category="nuclear"><div class="pub-year">2024</div><div><h3>Lifetime Measurements in the Yrast Band of 187Hg</h3><p><em>Physica Scripta</em>, 99, 065308.</p></div></article>
+          <article class="card pub" data-category="targets"><div class="pub-year">2024</div><div><h3>Crystallographic and Electrical Properties of a Mechanically Rolled Gold-Backed Niobium Target</h3><p><em>Vacuum</em>, 224, 113135.</p></div></article>
+          <article class="card pub" data-category="nuclear"><div class="pub-year">2023</div><div><h3>Revisiting the 118Xe Nucleus via In-Beam Gamma-Ray Spectroscopy</h3><p><em>Chinese Physics C</em>, 47, 084002.</p></div></article>
+          <article class="card pub" data-category="targets"><div class="pub-year">2023</div><div><h3>Fabrication of a Thin Molybdenum-Backed Target Using the Rolling Method</h3><p><em>Applied Radiation and Isotopes</em>, 199, 110860.</p></div></article>
+          <article class="card pub" data-category="targets"><div class="pub-year">2021</div><div><h3>Fabrication of a Thin Nb Target for Lifetime Measurements of Short-Lived Excited Nuclear States</h3><p><em>Nuclear Instruments and Methods in Physics Research A</em>, 985, 164667.</p></div></article>
+          <article class="card pub" data-category="targets"><div class="pub-year">2020</div><div><h3>Fabrication of a 128Te Thin Target for Nuclear-Level Lifetime Measurements</h3><p><em>Nuclear Instruments and Methods in Physics Research A</em>, 983, 164586.</p></div></article>
+        </div>
+        <p class="small" style="margin-top:1.3rem;color:var(--muted)">For a complete and continuously updated publication record, visit the ORCID profile linked above.</p>
+      </div>
+    </section>
+
+    <section id="global">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" style="color:var(--blue)">International engagement</p><h2>Research and scientific communication across institutions</h2><p>Selected places connected with research appointments, collaborations, invited talks and conference presentations.</p></div>
+        <div class="grid grid-2">
+          <div class="map-wrap" aria-label="Stylised map of research locations">
+            <svg viewBox="0 0 800 420" role="img" aria-label="Stylised world map with selected research locations">
+              <path d="M58 126l75-48 94 19 52 59-27 58-72 14-29 72-64-10-25-71-40-34zM284 85l80-38 83 26 54 46-17 54 36 46-44 79-81-10-26-64-72-14-18-72zM500 112l117-48 117 33 39 66-47 45-17 79-87 47-69-35-55-70-46-61z" fill="#164c6c" stroke="#377a99" stroke-width="2"/>
+              <circle class="map-point" cx="503" cy="160" r="7"><title>Kraków</title></circle><text class="map-label" x="514" y="157">Kraków</text>
+              <circle class="map-point" cx="483" cy="171" r="7"><title>Bern and Villigen</title></circle><text class="map-label" x="444" y="195">Bern / Villigen</text>
+              <circle class="map-point" cx="617" cy="229" r="7"><title>Delhi</title></circle><text class="map-label" x="627" y="226">Delhi</text>
+              <circle class="map-point" cx="651" cy="246" r="6"><title>Guwahati</title></circle><text class="map-label" x="662" y="250">Guwahati</text>
+              <circle class="map-point" cx="606" cy="260" r="6"><title>Mumbai</title></circle><text class="map-label" x="568" y="283">Mumbai</text>
+              <circle class="map-point" cx="633" cy="242" r="6"><title>Varanasi</title></circle><text class="map-label" x="644" y="271">Varanasi</text>
+            </svg>
+          </div>
+          <div class="visit-list">
+            <div class="visit"><strong>Kraków, Poland</strong><br>Jagiellonian University and J-PET research.</div>
+            <div class="visit"><strong>Bern, Switzerland</strong><br>Scientific presentation at Inselspital, University Hospital of Bern.</div>
+            <div class="visit"><strong>Villigen, Switzerland</strong><br>Oral presentation at the INTDS conference, Paul Scherrer Institute.</div>
+            <div class="visit"><strong>Delhi, India</strong><br>Doctoral research at the University of Delhi and experiments at IUAC.</div>
+            <div class="visit"><strong>Guwahati, India</strong><br>DAE–BRNS Symposium on Nuclear Physics.</div>
+            <div class="visit"><strong>Varanasi, India</strong><br>International Conference on New Frontiers in Nuclear Physics.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="talks" style="background:#edf5f8">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow" style="color:var(--blue)">Selected talks and presentations</p><h2>Sharing research with the scientific community</h2></div>
+        <div class="grid grid-3">
+          <article class="card conference-card"><time>2026 · Oral</time><h3>MCSB 2026</h3><p>Presentation on current research in positronium lifetime imaging and iterative reconstruction.</p></article>
+          <article class="card conference-card"><time>2026 · Poster</time><h3>ESMI 2026</h3><p>Poster presentation in molecular imaging.</p></article>
+          <article class="card conference-card"><time>2026 · Oral</time><h3>SONT 2026</h3><p>Oral contribution at the Jagiellonian University symposium.</p></article>
+          <article class="card conference-card"><time>23 January 2026 · Oral</time><h3>2nd Total-Body J-PET Meeting</h3><p><em>Developing Iterative Positronium Imaging with J-PET</em>, Jagiellonian University.</p></article>
+          <article class="card conference-card"><time>12 December 2025 · Oral</time><h3>General Meeting, Inselspital</h3><p><em>Development of Iterative Positronium Lifetime Image Reconstruction for J-PET</em>.</p></article>
+          <article class="card conference-card"><time>25–30 September 2022 · Oral</time><h3>30th INTDS Conference</h3><p><em>Fabrication and Characterisation of a High-Purity 93Nb Target on Lead Backing</em>.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <h2>Research, collaboration and academic exchange</h2>
+          <p>I welcome conversations related to PET reconstruction, positronium lifetime imaging, Monte Carlo simulation, nuclear spectroscopy and quantitative image analysis.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn btn-primary" href="mailto:pandeyanand799@gmail.com">Email me</a>
+            <a class="btn btn-ghost" href="https://orcid.org/0000-0002-3929-0899" target="_blank" rel="noopener">View ORCID</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Dr Anand Pandey · Research profile hosted on GitHub Pages</p>
+    <p class="small">Built as a lightweight, responsive and accessible single-page website.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const buttons = document.querySelectorAll('.filter-btn');
+    const publications = document.querySelectorAll('.pub');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        publications.forEach(pub => {
+          pub.style.display = filter === 'all' || pub.dataset.category === filter ? 'grid' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
